@@ -1,0 +1,83 @@
+<%- include('nav.ejs', {userName: user}) %>
+    <html>
+
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="/style.css">
+        <!-- script -->
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <section class="one">
+                <div class="content">
+                    <h1>Tale of The Abandoned: <br>Salvaged Works From Art School Waste</h1>
+                </div>
+            </section>
+            <section class="two">
+                <h3>What is Tale of The Abandoned and why we hold the exhibition?</h3>
+                <button class="videoBut" onclick="location.href='https://www.instagram.com/p/Cy018Harrwo/'"
+                    type="button">
+                    <img src="img/videoBut.png" alt="playButton" width="200px">
+                </button>
+            </section>
+            <section class="three">
+                <h4>Revisit our exhibition from 11.4 to 11.19 to find out how artwork being abandoned like
+                    <span>TRASH</span>
+                </h4>
+            </section>
+            <section class="four">
+                <img src="img/venue.jpg" class="venue" alt="venue" width="540px">
+            </section>
+            <section class="five" id="section-five">
+                <h2>Take your Favorite Artwork Home <br>By Donation</h2>
+                <!-- use fetch script to get all of the information -->
+                <div class="art-container">
+                    <!-- <div class="art">
+                        <img src="http://167.99.230.214:1104/Links/1.jpg" alt="" srcset="">
+                        <h3>Artwork Name</h3>
+                        <h4>Year</h4>
+                        <h4>Media</h4>
+                        <h4>Size</h4>
+                        <h4>location</h4>
+                    </div> -->
+                </div>
+                <!-- two flex box, one holds for everything, the other for painting, use the "singlePost" demo we mentioned for hyperlink -->
+            </section>
+        </div>
+    </body>
+    <script>
+        window.onload = function () {
+    fetch('http://localhost:1104/artwork.json')
+        .then(res => res.json())
+        .then(data => {
+            const artworks = data.artwork;
+            let artContainer = document.querySelector('.art-container');
+
+            artworks.forEach(artwork => {
+                let art = document.createElement('div');
+                art.className = 'art';
+                art.innerHTML = `
+                    <img src="${artwork.link}" alt="" srcset="">
+                    <h3>${artwork.name}</h3>
+                    <h4>${artwork.year}</h4>
+                    <h4>${artwork.media}</h4>
+                    <h4>${artwork.size}</h4>
+                    <h4>${artwork.loc}</h4>
+                `;
+                artContainer.appendChild(art);
+
+                // Add click event listener to each artwork element
+                art.addEventListener('click', function() {
+                    // Redirect to singlePainting page
+                    window.location.href = "/singlePainting?id=" + artwork.name;
+                });
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching artwork data:', error);
+        });
+};
+    </script>
+
+    </html>

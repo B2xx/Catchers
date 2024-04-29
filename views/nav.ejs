@@ -1,0 +1,19 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<div class="nav">
+    <div class="nav-leftside">
+        <a href="/#section-five">Gallery</a>
+    </div>
+    <a href="/"><img src="img/logo.png" height="30px"></a>
+    <div class="nav-rightside">
+        <a href="https://www.instagram.com/catchers_curation/" class="learnMore">About Us</a>
+        <% if (userName) { %>
+            <a>hello, <%= userName%></a>
+            <a href="/logout">log out</a>
+        <% } else { %>
+        <a href="/login">log in</a>
+         <%} %>
+    </div>
+</div>
