@@ -279,13 +279,11 @@ img.venue {
 .container{
   display: flex;
   align-items: center;
-  position: absolute;
+  margin-top: 2%;
   width: 100%;
   height: 100%;
-  overflow-x:hidden;
   justify-content:center;
   gap: 5%;
-  flex-grow: 2;
 }
 .container > img{
   max-width: 60%;
@@ -329,10 +327,6 @@ img.venue {
   width:5vw;
 }
 
-.all-post{
-  width: 66%;
-  position: relative;
-}
 .page{
   margin: 0;
   padding: 0;
@@ -347,16 +341,11 @@ img.venue {
 
 .post{
   width: 100%;
-  border: 1px hotpink solid;
+  border: 3px #ffddd7 solid;
   /* shorthand for margin-top and margin-bottom */
   margin: 2px 0px;
   padding: 5px;
   position: relative;
-}
-
-.post a{
-  text-decoration: none;
-  color: black;
 }
 
 .post-img {
@@ -373,4 +362,8 @@ img.venue {
   top: 10px;
   right: 10px;
   cursor: pointer;
+}
+
+.all-posts{
+  width: 66%;
 }

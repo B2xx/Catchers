@@ -1,5 +1,9 @@
 <%- include('nav.ejs') %>
-
+<script>
+  // console.log(window.location.search);
+  let numPainting = window.location.search.split('=')[1];
+  console.log(numPainting);
+</script>
   <body style="background-color: #ffcc93;">
     <div class="page">
       <div class="container">
@@ -12,6 +16,7 @@
             <h4>Size</h4>
             <h4>location</h4>
           </div>
+          
           <% if (userName) { %>
             <div class="comment-container">
               <p class="form-label">Guess Why They are Abandoned ...</p>
@@ -45,7 +50,8 @@
             <% if(post.imgSrc){ %>
               <img class="post-img" src="<%=post.imgSrc%>">
               <% } %>
-  
+
+              <% if (userName) { %>
                 <form method="POST" action="/like">
                   <label for="like-post-<%=post._id%>" class="like-label">like <%=post.likes%> </label>
   
@@ -53,6 +59,9 @@
   
                   <input type="hidden" name="postId" value="<%=post._id%>" />
                 </form>
+                <% } else { %>
+                  <p><a href="/login">log in</a> to like this comment</p>
+                   <%} %>
           </div>
           <% }) %>
       </div>

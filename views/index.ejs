@@ -48,13 +48,13 @@
     </body>
     <script>
         window.onload = function () {
-    fetch('http://localhost:1104/artwork.json')
+    fetch('http://167.99.230.214:1104/artwork.json')
         .then(res => res.json())
         .then(data => {
             const artworks = data.artwork;
             let artContainer = document.querySelector('.art-container');
 
-            artworks.forEach(artwork => {
+            artworks.forEach((artwork,numPainting) => {
                 let art = document.createElement('div');
                 art.className = 'art';
                 art.innerHTML = `
@@ -70,7 +70,7 @@
                 // Add click event listener to each artwork element
                 art.addEventListener('click', function() {
                     // Redirect to singlePainting page
-                    window.location.href = "/singlePainting?id=" + artwork.name;
+                    window.location.href = "/singlePainting?id=" + numPainting;
                 });
             });
         })

@@ -184,6 +184,7 @@ app.post("/comment", requiresAuthentication, (req, res) => {
 
   database.update(query, update, {}, (err, numUpdated) => {
     console.log(`${numUpdated} comment has been added`);
+    res.redirect("/singlePainting?id=");
   });
 });
 /////////////////////////////////////
