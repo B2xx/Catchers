@@ -116,7 +116,7 @@ app.post(
 
     database.insert(data, (err, newData) => {
       console.log(newData);
-      res.redirect("/singlePainting");
+      res.redirect('back');
     });
   }
 );
@@ -130,7 +130,7 @@ app.post("/remove", requiresAuthentication, (req, res) => {
 
   database.remove(query, (err, numRemoved) => {
     console.log(`num removed elements ${numRemoved}`);
-    res.redirect("/");
+    res.redirect('back');
   });
 });
 
@@ -156,7 +156,7 @@ app.post("/like", requiresAuthentication, (req, res) => {
 
     database.update(query, update, {}, (err, numUpdated) => {
       console.log(`updated docs: ${numUpdated}`);
-      res.redirect("/singlePainting");
+      res.redirect('back');
     });
   }
 });
@@ -184,7 +184,7 @@ app.post("/comment", requiresAuthentication, (req, res) => {
 
   database.update(query, update, {}, (err, numUpdated) => {
     console.log(`${numUpdated} comment has been added`);
-    res.redirect("/singlePainting?id=");
+    res.redirect("/singlePainting?id="+numPainting);
   });
 });
 /////////////////////////////////////
@@ -194,7 +194,7 @@ app.get("/login", (req, res) => {
   if (req.query.error) {
     res.render("login.ejs", { error: true });
   } else {
-    res.render("login.ejs", {});
+    res.render("login.ejs", {referer:req.headers.referer});
   }
 });
 
@@ -249,7 +249,7 @@ app.post("/authenticate", (req, res) => {
         session.loggedInUser = attemptLogin.username;
 
         console.log("successful login");
-        res.redirect("/");
+        res.redirect(req.body.referer);
       } else {
         res.redirect("/login");
       }

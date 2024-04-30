@@ -250,6 +250,7 @@ img.venue {
   width: 70vw;
   height: 100%;
   overflow-x: scroll;
+  overflow-y: hidden;
   padding-top: 2vw;
 }
 
@@ -257,6 +258,7 @@ img.venue {
   width: 33%;
   min-width: 33%;
   height: 100%;
+  padding-top:2%;
   /* border: 1px solid black; */
   display: flex;
   flex-direction: column;

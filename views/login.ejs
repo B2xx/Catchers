@@ -8,7 +8,8 @@
         <form method="POST" action="/authenticate">
             <input type="text" name="username" placeholder="username">
             <input type="password" name="password" placeholder="password">
-            <input type="submit" name="submitbutton" value="login" class="submit-btn">      
+            <input type="submit" name="submitbutton" value="login" class="submit-btn">  
+            <input type="hidden" name="referer" value= <%= referer %> >    
         </form>
         <a href="/register"> Don't have an account? Register here.</a>
     </div>
