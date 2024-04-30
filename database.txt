@@ -1,2 +1,6 @@
 {"text":"Hello world","date":"4/29/2024, 12:55:30 PM","timestamp":1714409730231,"likes":0,"comments":[],"_id":"UWAVoi01L29V0359"}
 {"text":"Good to see you!","date":"4/29/2024, 12:54:59 PM","timestamp":1714409699033,"likes":0,"comments":[],"_id":"vHkZdAYijiIDiSUE"}
+{"$$deleted":true,"_id":"UWAVoi01L29V0359"}
+{"$$deleted":true,"_id":"vHkZdAYijiIDiSUE"}
+{"text":"Hi","date":"4/30/2024, 2:32:30 AM","timestamp":1714458750320,"likes":0,"comments":[],"_id":"mM0vxtmE8Vedtop7"}
+{"text":"Hi","date":"4/30/2024, 2:34:38 AM","timestamp":1714458878980,"likes":0,"comments":[],"_id":"NrzS2ORkhcIEMdkm"}

@@ -48,7 +48,7 @@
     </body>
     <script>
         window.onload = function () {
-    fetch('http://167.99.230.214:1104/artwork.json')
+    fetch('http://localhost:1104/artwork.json')
         .then(res => res.json())
         .then(data => {
             const artworks = data.artwork;
